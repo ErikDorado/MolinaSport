@@ -6,9 +6,8 @@
     <title>MolinaSport - Suplementación Deportiva</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="../JS/fun.js" defer></script>
+    <!-- REMOVER: <script src="../JS/fun.js" defer></script> -->
     <link rel="stylesheet" href="styles.css">
-    
 </head>
 <body>
 
@@ -20,11 +19,7 @@
             <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1920&auto=format&fit=crop');"></div>
             
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2; width: 100%;">
-                
-                <img src="imgs/logo-white.PNG" 
-                    alt="MolinaSport Logo" 
-                    class="hero-logo-img">
-                
+                <img src="imgs/logo-white.PNG" alt="MolinaSport Logo" class="hero-logo-img">
                 <p style="font-size: 1.5rem; text-shadow: 2px 2px 10px black; font-weight: bold;">Lleva tu cuerpo al siguiente nivel</p>
             </div>
             <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);"></div>
@@ -33,10 +28,7 @@
 
     <nav>
         <div class="logo">
-                <img src="imgs/logo-white.PNG" 
-                    alt="MolinaSport"
-                    class="nav-logo-img"> 
-                    
+            <img src="imgs/logo-white.PNG" alt="MolinaSport" class="nav-logo-img"> 
         </div>
 
         <ul class="nav-links">
@@ -78,7 +70,7 @@
         <div class="cards-grid">
             <div class="product-card">
                 <div class="card-carousel" id="carousel-1">
-                    <img src="imgs/pro3.jpg"class="mini-slide active">
+                    <img src="imgs/pro3.jpg" class="mini-slide active">
                     <img src="imgs/pro1.jpg" class="mini-slide">
                     <img src="imgs/pro2.jpg" class="mini-slide">
                     <button class="carousel-btn prev" onclick="moveSlide('carousel-1', -1)">&#10094;</button>
@@ -146,38 +138,43 @@
                     <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
                 </div>
             </div>
+            <!-- COMBOS sección CORREGIDA -->
             <div class="product-card"> 
                 <div class="card-carousel" id="carousel-5">
-                        <img src="imgs/combo1.jpeg" class="mini-slide active">
-                        <img src="imgs/combo2.jpeg" class="mini-slide">
-                        <img src="imgs/combo3.jpeg" class="mini-slide">
-                        <button class="carousel-btn prev" onclick="moveSlide('carousel-5', -1)">&#10094;</button>
-                        <button class="carousel-btn next" onclick="moveSlide('carousel-4', 1)">&#10095;</button>
-                    </div>
+                    <img src="imgs/combo1.jpeg" class="mini-slide active">
+                    <img src="imgs/combo2.jpeg" class="mini-slide">
+                    <img src="imgs/combo3.jpeg" class="mini-slide">
+                    <button class="carousel-btn prev" onclick="moveSlide('carousel-5', -1)">&#10094;</button>
+                    <button class="carousel-btn next" onclick="moveSlide('carousel-5', 1)">&#10095;</button>
+                </div>
                 <div class="card-content">
-                    <h3> COMBOS</h3>
+                    <h3>COMBOS</h3>
                     <p class="brands">Combos de calidad, lo que tu cuerpo necesita, Recuperación y Crecimiento:<br><br>
                         <strong>Ena, Star Nutrition, One Fit, Max Force y Más</strong>
                     </p>
-                    <a href="https://w.app/molinasport" target="-blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i>Consultar</a>
+                    <!-- CORREGIDO: target="_blank" (guión bajo) -->
+                    <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
                 </div>
-            </div>    
+            </div>
             
             <div class="special-card">
                 <h3>¡Y MUCHO MÁS!</h3>
                 <p style="margin: 20px 0;">Contamos con quemadores de grasa, multivitamínicos, barras proteicas y MUCHO MÁS.</p>
                 <a href="https://w.app/molinasport" class="btn">Consultá el Catálogo Completo</a>
             </div>
+        </div> <!-- CIERRE FALTANTE de .cards-grid -->
     </section>
 
     <section id="planes" class="plans-section">
         <h2 class="section-title">PLANES DE ENTRENAMIENTO</h2>
         <p class="plans-intro"> Antes de seguir dejame que te muestre mi Certificado que me permite en mi dia a dia ofrecer mi experiencia y servicio dentro de este increible mundo</p>
-        <section id="nosotros" class="about-section">
-        <div class="about-imgg">
-            <img src="imgs/titulo.png" alt="Gym Interior">
+        <div class="about-section">
+            <div class="about-imgg">
+                <img src="imgs/titulo.png" alt="Certificación">
+            </div>
         </div>
-        </section>
         <p class="plans-intro">Elegi el plan que mejor se adapte a tus objetivos. Rutinas personalizadas y diseñadas en base a experiencia y resultados tanto propios como de aquellos que se contactaron conmigo... ¿QUE ESPERÁS?.</p>
 
         <div class="plans-grid">
@@ -221,131 +218,190 @@
     </section>
 
     <script>
-        // FUNCIÓN PARA EL HERO SLIDER (solo este se auto-avanza)
-let currentHeroSlide = 0;
-const heroSlides = document.querySelectorAll('.hero-slider .slide');
+    // FUNCIÓN PARA EL HERO SLIDER (solo este se auto-avanza)
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('.hero-slider .slide');
 
-function showHeroSlide(n) {
-    heroSlides.forEach(slide => slide.classList.remove('active'));
-    heroSlides[n].classList.add('active');
-}
+    function showHeroSlide(n) {
+        heroSlides.forEach(slide => slide.classList.remove('active'));
+        heroSlides[n].classList.add('active');
+    }
 
-function nextHeroSlide() {
-    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-    showHeroSlide(currentHeroSlide);
-}
+    function nextHeroSlide() {
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        showHeroSlide(currentHeroSlide);
+    }
 
-// Auto avanzar hero slider cada 5 segundos
-setInterval(nextHeroSlide, 5000);
+    // Auto avanzar hero slider cada 5 segundos
+    setInterval(nextHeroSlide, 5000);
 
-// FUNCIÓN PARA LOS CARRUSELES DE PRODUCTOS (solo navegación manual)
-function moveSlide(carouselId, direction) {
-    const carousel = document.getElementById(carouselId);
-    if (!carousel) return;
-    
-    const slides = carousel.querySelectorAll('.mini-slide');
-    let activeIndex = 0;
-    
-    slides.forEach((slide, index) => {
-        if (slide.classList.contains('active')) {
-            activeIndex = index;
-            slide.classList.remove('active');
-        }
-    });
-    
-    let newIndex = activeIndex + direction;
-    
-    if (newIndex >= slides.length) newIndex = 0;
-    if (newIndex < 0) newIndex = slides.length - 1;
-    
-    slides[newIndex].classList.add('active');
-}
-
-// TOGGLE MENU PARA MÓVIL
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
-
-// Cerrar menú al hacer clic en un enlace (para móviles)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.remove('active');
-    });
-});
-
-// SMOOTH SCROLL PARA ENLACES INTERNOS
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+    // FUNCIÓN SIMPLIFICADA Y ROBUSTA PARA CARRUSELES
+    function moveSlide(carouselId, direction) {
+        console.log('Llamando moveSlide para:', carouselId, 'dirección:', direction);
         
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            const navHeight = document.querySelector('nav').offsetHeight;
-            const targetPosition = targetElement.offsetTop - navHeight;
+        const carousel = document.getElementById(carouselId);
+        if (!carousel) {
+            console.error('❌ Carousel no encontrado:', carouselId);
+            return;
+        }
+        
+        const slides = carousel.querySelectorAll('.mini-slide');
+        if (slides.length === 0) {
+            console.error('❌ No hay slides en:', carouselId);
+            return;
+        }
+        
+        console.log(`✅ Encontrado ${carouselId} con ${slides.length} slides`);
+        
+        // Encontrar índice activo
+        let activeIndex = 0;
+        for (let i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains('active')) {
+                activeIndex = i;
+                break;
+            }
+        }
+        
+        console.log(`📊 Slide activo actual: ${activeIndex}`);
+        
+        // Quitar clase active del slide actual
+        slides[activeIndex].classList.remove('active');
+        
+        // Calcular nuevo índice
+        let newIndex = activeIndex + direction;
+        
+        // Circular
+        if (newIndex >= slides.length) newIndex = 0;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        
+        console.log(`➡️ Nuevo slide activo: ${newIndex}`);
+        
+        // Activar nuevo slide
+        slides[newIndex].classList.add('active');
+        
+        // Verificar que realmente se activó
+        setTimeout(() => {
+            const currentActive = carousel.querySelectorAll('.mini-slide.active').length;
+            console.log(`✅ Slides activos después del cambio: ${currentActive}`);
+        }, 100);
+    }
+
+    // TOGGLE MENU PARA MÓVIL
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+        
+        const menuIcon = document.querySelector('.menu-toggle i');
+        if (menuIcon) {
+            if (navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+    }
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.classList.contains('carousel-btn')) return;
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // INICIALIZACIÓN
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 MolinaSport - Página cargada');
+        
+        // Mostrar primer slide del hero
+        showHeroSlide(0);
+        
+        // Inicializar todos los carousels
+        document.querySelectorAll('.card-carousel').forEach((carousel, index) => {
+            console.log(`🎠 Inicializando carousel ${index + 1}: ${carousel.id}`);
+            
+            const slides = carousel.querySelectorAll('.mini-slide');
+            let hasActive = false;
+            
+            slides.forEach(slide => {
+                if (slide.classList.contains('active')) {
+                    hasActive = true;
+                    console.log(`   ✓ Slide activo encontrado en ${carousel.id}`);
+                }
             });
+            
+            // Activar primer slide si no hay activo
+            if (!hasActive && slides.length > 0) {
+                slides[0].classList.add('active');
+                console.log(`   ⚡ Activado primer slide en ${carousel.id}`);
+            }
+            
+            // Verificar botones
+            const buttons = carousel.querySelectorAll('.carousel-btn');
+            console.log(`   🎯 Botones encontrados: ${buttons.length}`);
+        });
+        
+        // Añadir botón hamburguesa para móvil
+        if (window.innerWidth <= 768) {
+            const nav = document.querySelector('nav');
+            if (nav && !document.querySelector('.menu-toggle')) {
+                const menuToggle = document.createElement('button');
+                menuToggle.className = 'menu-toggle';
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                menuToggle.onclick = toggleMenu;
+                nav.appendChild(menuToggle);
+            }
         }
+        
+        // DEPURACIÓN: Verificar que todas las imágenes existan
+        document.querySelectorAll('.mini-slide').forEach((img, index) => {
+            img.onerror = function() {
+                console.error(`❌ Imagen no encontrada: ${this.src}`);
+                this.style.border = '2px solid red';
+            };
+        });
+        
+        console.log('✅ Inicialización completada');
+        console.log('🎯 Total carousels:', document.querySelectorAll('.card-carousel').length);
+        console.log('🎯 Total botones carousel:', document.querySelectorAll('.carousel-btn').length);
     });
-});
 
-// EFECTO DE APARICIÓN AL SCROLL
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
+    // TEST: Verifica que la función moveSlide esté disponible globalmente
+    window.testCarousel = function() {
+        console.log('🧪 Probando carousel-5...');
+        console.log('moveSlide disponible?', typeof moveSlide);
+        
+        const carousel5 = document.getElementById('carousel-5');
+        if (carousel5) {
+            console.log('✅ carousel-5 encontrado');
+            console.log('Slides en carousel-5:', carousel5.querySelectorAll('.mini-slide').length);
+            console.log('Botones en carousel-5:', carousel5.querySelectorAll('.carousel-btn').length);
+            
+            // Probar manualmente
+            moveSlide('carousel-5', 1);
+        } else {
+            console.error('❌ carousel-5 NO encontrado');
         }
-    });
-}, observerOptions);
-
-// Observar elementos para animación
-document.querySelectorAll('.product-card, .plan-card, .about-section').forEach(el => {
-    observer.observe(el);
-});
-
-// CAMBIO DE COLOR DEL NAV AL SCROLL
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 100) {
-        nav.style.background = 'linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%)';
-        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
-    } else {
-        nav.style.background = 'linear-gradient(135deg, var(--gray-dark) 0%, rgba(45, 45, 45, 0.95) 100%)';
-        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-    }
-});
-
-// INICIALIZACIÓN AL CARGAR LA PÁGINA
-document.addEventListener('DOMContentLoaded', () => {
-    // Mostrar primer slide del hero
-    showHeroSlide(0);
+    };
     
-    // Añadir botón hamburguesa para móvil si no existe
-    if (window.innerWidth <= 768) {
-        const nav = document.querySelector('nav');
-        const menuToggle = document.createElement('button');
-        menuToggle.className = 'menu-toggle';
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        menuToggle.onclick = toggleMenu;
-        nav.appendChild(menuToggle);
-    }
-});
+    // Ejecutar test después de 2 segundos (opcional para debug)
+    // setTimeout(window.testCarousel, 2000);
     </script>
 </body>
 </html>
-
-
-
-
-
