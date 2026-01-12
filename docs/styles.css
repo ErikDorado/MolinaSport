@@ -78,12 +78,13 @@ nav {
     height: 90px; /* Altura fija */
 }
 .nav-logo-img {
-    height: 110px; /* MÁS ALTO que el nav */
+    margin-top: 30px;
+    height: 250px; /* MÁS ALTO que el nav */
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
     transition: all 0.3s ease;
     object-fit: contain;
     position: relative;
-    top: 5px; /* Ajuste fino de posición */
+                        /* Ajuste fino de posición */
 }
     .nav-logo-img:hover {
     transform: scale(1.08) translateY(-2px);
@@ -407,6 +408,8 @@ section {
 }
 
 .plan-img {
+    background: cover;
+    background: center;
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -479,38 +482,187 @@ section {
     line-height: 1.6;
 }
 
-/* VIDEO SECTION */
+/* ============================================
+   VIDEO SECTION - TAMAÑO ÓPTIMO Y SIN BORDES
+   ============================================ */
+
 .video-section {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     background: var(--gray-dark);
     margin: 2rem auto;
-    max-width: 1200px;
-    border-radius: 15px;
+    max-width: 1100px;
+    border-radius: 12px;
+    text-align: center;
 }
 
-.video-wrapper {
-    max-width: 800px;
+.video-main-container {
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.video-container {
+.video-title {
+    color: var(--greenyellow);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* CONTENEDOR PRINCIPAL DEL VIDEO - TAMAÑO ÓPTIMO */
+.video-display-wrapper {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(145deg, #222222, #2a2a2a);
+    border-radius: 10px;
+    box-shadow: 
+        inset 0 2px 10px rgba(0,0,0,0.3),
+        0 8px 25px rgba(0,0,0,0.4);
+    margin-bottom: 1rem;
+}
+
+/* CONTENEDOR DEL VIDEO - ELIMINA BORDES NEGROS */
+.video-display-container {
     position: relative;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background: #000;
+    background: #151515; /* Fondo oscuro pero no negro puro */
+    padding: 10px; /* ESTO ELIMINA LOS BORDES NEGROS VISIBLES */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-/* Para video HTML5 */
-.video-container video {
+/* VIDEO CON TAMAÑO ÓPTIMO - NI MUY GRANDE NI MUY PEQUEÑO */
+.optimized-video-display {
     width: 100%;
     height: auto;
+    max-height: 500px; /* TAMAÑO ÓPTIMO - AJUSTA SI QUIERES MÁS GRANDE */
     display: block;
-    border-radius: 10px;
+    object-fit: contain; /* MANTIENE TODO EL CONTENIDO VISIBLE */
+    border-radius: 6px;
+    background: transparent; /* IMPORTANTE: transparente para mostrar el fondo del contenedor */
 }
 
+/* Marco decorativo que simula pantalla */
+.video-frame {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid rgba(154, 205, 50, 0.2);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.video-instruction {
+    color: var(--green-light);
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.video-instruction i {
+    color: var(--greenyellow);
+    font-size: 1.1rem;
+}
+
+/* RESPONSIVE PARA DIFERENTES PANTALLAS */
+@media (min-width: 1400px) {
+    .video-section {
+        max-width: 1200px;
+    }
+    
+    .video-main-container {
+        max-width: 1000px;
+    }
+    
+    .optimized-video-display {
+        max-height: 550px; /* Un poco más grande en monitores grandes */
+    }
+}
+
+@media (max-width: 992px) {
+    .video-section {
+        max-width: 900px;
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .video-main-container {
+        max-width: 800px;
+    }
+    
+    .optimized-video-display {
+        max-height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-section {
+        max-width: 95%;
+        padding: 2rem 1rem;
+        margin: 1.5rem auto;
+    }
+    
+    .video-main-container {
+        max-width: 100%;
+    }
+    
+    .video-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .optimized-video-display {
+        max-height: 400px;
+    }
+    
+    .video-display-wrapper {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-section {
+        padding: 1.5rem 0.5rem;
+        border-radius: 10px;
+    }
+    
+    .video-title {
+        font-size: 1.4rem;
+    }
+    
+    .optimized-video-display {
+        max-height: 350px; /* Buen tamaño en móviles */
+    }
+    
+    .video-instruction {
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* EFECTO HOVER PARA MEJOR INTERACCIÓN */
+.video-display-container:hover .video-frame {
+    border-color: rgba(154, 205, 50, 0.4);
+    box-shadow: 0 0 15px rgba(154, 205, 50, 0.2);
+}
+
+.optimized-video-display:hover {
+    cursor: pointer;
+}
 /* RESPONSIVE DESIGN */
+@media (max-width: 500px) {
+    .nav-logo-img{
+        display:flex;
+        align-self: center;
+    }
+}
 @media (max-width: 992px) {
     .about-section {
         flex-direction: column;
@@ -559,7 +711,7 @@ section {
     }
     
     .hero-logo-img {
-        width: 250px;
+        width: 400px;
     }
     
     section {
@@ -588,7 +740,7 @@ section {
 
 @media (max-width: 480px) {
     .hero-logo-img {
-        width: 200px;
+        width: 400px;
     }
     
     .section-title {
@@ -608,5 +760,168 @@ section {
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
+    }
+}
+/* ============================================
+   SECCIÓN PROGRAMAS ESPECIALIZADOS - Página Principal
+   ============================================ */
+
+.programs-showcase {
+    padding: 5rem 2rem;
+    background: var(--gray-dark);
+    max-width: 1200px;
+    margin: 3rem auto;
+    border-radius: 15px;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.program-card {
+    background: var(--dark-bg);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(154, 205, 50, 0.2);
+}
+
+.gforce-card {
+    border-top: 5px solid #FF6B8B;
+}
+
+.mforce-card {
+    border-top: 5px solid #2196F3;
+}
+
+.program-card:hover {
+    border-color: var(--greenyellow);
+}
+
+.program-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background: rgba(154, 205, 50, 0.1);
+}
+
+.gforce-card .program-icon {
+    color: #FF6B8B;
+    background: rgba(255, 107, 139, 0.1);
+}
+
+.mforce-card .program-icon {
+    color: #2196F3;
+    background: rgba(33, 150, 243, 0.1);
+}
+
+.program-card h3 {
+    color: var(--greenyellow);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.program-card p {
+    color: var(--gray-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.program-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.program-card li {
+    padding: 0.5rem 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--gray-light);
+}
+
+.program-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.gforce-card li::before {
+    color: #FF6B8B;
+}
+
+.mforce-card li::before {
+    color: #2196F3;
+}
+
+.btn-ver {
+    display: inline-block;
+    margin-top: auto;
+    padding: 12px 25px;
+    background: transparent;
+    color: var(--greenyellow);
+    border: 2px solid var(--greenyellow);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-ver:hover {
+    background: var(--greenyellow);
+    color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+/* Responsive para programas */
+@media (max-width: 768px) {
+    .programs-showcase {
+        padding: 3rem 1rem;
+        margin: 2rem 1rem;
+    }
+    
+    .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .program-card {
+        min-height: auto;
+        padding: 2rem;
+    }
+    
+    .program-card h3 {
+        font-size: 1.5rem;
     }
 }
