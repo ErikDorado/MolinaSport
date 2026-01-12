@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MolinaSport - Suplementación Deportiva</title>
+    <title>MolinaSport - Suplementación y Asesorias</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- REMOVER: <script src="../JS/fun.js" defer></script> -->
-    <link rel="stylesheet" href="styles.css">
+   
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -48,20 +48,25 @@
             <h2>Sobre Mi</h2>
             <p>Soy Luciano Molinas, inicié MolinaSport no solo para vender suplementos sino para ofrecer productos y asesoramiento de calidad porque es una de las formas mas seguras de llegar a los resultados deseados. toda la vida entrené, probé de todo, gasté fortuna en suples… y siempre sentí que hacía falta alguien que te explique las cosas y SIN CHAMUYO, entonces me propuse el reto de vender productos y enseñanzas de calidad, para que no pierdas tiempo ni plata.</p>
             <br>
-            <a href="https://w.app/molinasport" class="btn">Contáctame</a>
+            <a href="https://wa.me/5492901650127" class="btn">Contáctame</a>
         </div>
     </section>
     
-    <section class="video-section">
-        <div class="video-wrapper">
-            <div class="video-container"> 
-                <video controls poster="imgs/vid0.jpeg" style="object-fit: contain; background-color: #000;">
+   <section class="video-section">
+    <div class="video-main-container">
+        <h3 class="video-title">MolinaSport</h3>
+        <div class="video-display-wrapper">
+            <div class="video-display-container">
+                <video controls poster="imgs/vid0.jpeg" class="optimized-video-display">
                     <source src="imgs/vid1.mp4" type="video/mp4">
                     Tu navegador no soporta videos.
                 </video>
+                <div class="video-frame"></div>
             </div>
         </div>
-    </section>
+        
+    </div>
+</section>
 
     <section id="ofrecemos" class="products-section">
         <h2 class="section-title">NUESTROS SUPLEMENTOS</h2>
@@ -81,7 +86,7 @@
                     <p class="brands">Trabajo con las mejores marcas del mercado para garantizar tus resultados : <br><br>
                     <strong>ENA, Gold, Star Nutrition, y MAS.</strong>
                     </p>
-                    <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
                 </div>
             </div>
 
@@ -99,7 +104,7 @@
                     <p class="brands">Aumenta tu fuerza y potencia explosiva con creatina monohidratada 100% pura: <br><br>
                     <strong>Star Nutrition, One Fit, ENA.</strong>
                     </p>
-                    <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
                 </div>
             </div>
             <!-- vitaminas seccion-->
@@ -117,7 +122,7 @@
                     <p class="brands">Evita el catabolismo y mejora tu resistencia durante el entreno: <br><br>
                     <strong>Xtrenght, Gold, Star Nutrition, Ena.</strong>
                     </p>
-                    <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
                 </div>
             </div>
             <!--pre entreno seccion-->
@@ -135,7 +140,7 @@
                     <p class="brands">Energía extrema para tus sesiones más duras. Enfoque y bombeo: <br><br>
                     <strong>C4, Star Nutrition Pump.</strong>
                     </p>
-                    <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar</a>
                 </div>
             </div>
             <!-- COMBOS sección CORREGIDA -->
@@ -153,7 +158,7 @@
                         <strong>Ena, Star Nutrition, One Fit, Max Force y Más</strong>
                     </p>
                     <!-- CORREGIDO: target="_blank" (guión bajo) -->
-                    <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa">
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa">
                         <i class="fab fa-whatsapp"></i> Consultar
                     </a>
                 </div>
@@ -162,10 +167,12 @@
             <div class="special-card">
                 <h3>¡Y MUCHO MÁS!</h3>
                 <p style="margin: 20px 0;">Contamos con quemadores de grasa, multivitamínicos, barras proteicas y MUCHO MÁS.</p>
-                <a href="https://w.app/molinasport" class="btn">Consultá el Catálogo Completo</a>
+                <a href="https://wa.me/5492901650127" class="btn">Consultá el Catálogo Completo</a>
             </div>
         </div> <!-- CIERRE FALTANTE de .cards-grid -->
     </section>
+        <!-- Después de la sección de productos y antes de los planes -->
+    
 
     <section id="planes" class="plans-section">
         <h2 class="section-title">PLANES DE ENTRENAMIENTO</h2>
@@ -184,7 +191,7 @@
                     <h3>Iniciante</h3>
                     <p>Rutinas, consejos y enseñanzas para adaptarte y adentrarte al maximo en este mundo.</p>
                     <div class="plan-price">$40.000 /mes</div>
-                    <a href="https://w.app/molinasport" class="btn btn-wa">Adquirir</a>
+                    <a href="https://wa.me/5492901650127" class="btn btn-wa">Adquirir</a>
                 </div>
             </div>
             <div class="plan-card">
@@ -193,7 +200,7 @@
                     <h3>Hipertrofia</h3>
                     <p>Enfoque en la ganancia de muscular máxima.</p>
                     <div class="plan-price">$58.000 /mes</div>
-                    <a href="https://w.app/molinasport" class="btn btn-wa">Adquirir</a>
+                    <a href="https://wa.me/5492901650127" class="btn btn-wa">Adquirir</a>
                 </div>
             </div>
             <div class="plan-card">
@@ -202,8 +209,46 @@
                     <h3>Personalizado</h3>
                     <p>Seguimientos, consejos y asesorias 1 a 1.</p>
                     <div class="plan-price">$90.000 /mes</div>
-                    <a href="https://w.app/molinasport" class="btn btn-wa">Adquirir</a>
+                    <a href="https://wa.me/5492901650127" class="btn btn-wa">Adquirir</a>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="programs-showcase">
+        <h2 class="section-title">PROGRAMAS ESPECIALIZADOS</h2>
+        <p class="plans-intro">Entrenamientos personalizados adaptados específicamente a tu género y objetivos</p>
+        
+        <div class="programs-grid">
+            <!-- Bloque G-Force -->
+            <div class="program-card gforce-card">
+                <div class="program-icon">
+                    <i class="fas fa-venus"></i>
+                </div>
+                <h3>G-FORCE</h3>
+                <p>Entrenamiento científico adaptado exclusivamente a la fisiología femenina. Maximiza resultados respetando tus objetivos.</p>
+                <ul>
+                    <li>Nutrición adaptada</li>
+                    <li>Entrenamiento periodizado por fases</li>
+                    <li>Soporte femenino exclusivo</li>
+                    <li>Enfoque en Crecimeinto y Ganancias</li>
+                </ul>
+                <a href="gforce.html" class="btn btn-ver">Ver programa completo →</a>
+            </div>
+            
+            <!-- Bloque M-Force -->
+            <div class="program-card mforce-card">
+                <div class="program-icon">
+                    <i class="fas fa-mars"></i>
+                </div>
+                <h3>H-SYSTEM</h3>
+                <p>Programa avanzado de fuerza e hipertrofia masculina. Desarrollo muscular inteligente con técnicas probadas para maximizar resultados.</p>
+                <ul>
+                    <li>Fuerza máxima y potencia</li>
+                    <li>Hipertrofia científica</li>
+                    <li>Prevención de lesiones</li>
+                    <li>Nutrición para ganancia muscular</li>
+                </ul>
+                <a href="mforce.html" class="btn btn-ver">Ver programa completo →</a>
             </div>
         </div>
     </section>
@@ -211,10 +256,10 @@
     <section id="redes" class="footer-section">
         <div class="social-icons">
             <a href="https://www.instagram.com/molinasport.sf?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://w.app/molinasport" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/5492901650127" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p class="quote" style="color: white;">"El dolor que sentis hoy es la fuerza que vas a sentir mañana."</p>
-        <p style="margin-top: 30px; font-size: 0.8rem; color: #fff9f9;">© 2025 NexDev Solutions</p>
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #fff9f9;">© 2025 MolinaSport</p>
     </section>
 
     <script>
@@ -405,4 +450,3 @@
     </script>
 </body>
 </html>
-
