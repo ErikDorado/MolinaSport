@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H-SYSTEM: Programa avanzado de hipertrofia masculina. Desarrollo de brazos, pecho, espalda, hombros. Fuerza máxima y recuperación optimizada.">
+    <meta name="keywords" content="hipertrofia masculina, brazos, pecho, espalda, hombros, fuerza máxima, recuperación, aumento muscular hombre">
+    <meta name="author" content="Luciano Molinas - MolinaSport">
+    <title>H-SYSTEM - MolinaSport</title>
+    <link rel="canonical" href="https://tudominio.com/mforce.html">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA H-SYSTEM */
+        :root {
+            --mforce-primary: #2196F3;
+            --mforce-secondary: #00796B;
+            --mforce-dark: #0D47A1;
+            --mforce-light: #B3E5FC;
+        }
+        
+        /* HERO SIMPLIFICADO SIN CARRUSEL */
+        .mforce-hero {
+            background: linear-gradient(135deg, var(--mforce-primary) 0%, var(--mforce-dark) 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .mforce-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534367507877-0edd93bd013b?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .mforce-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+        
+        .hero-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 900px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .highlight-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .highlight-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-list i {
+            color: #FFCC00;
+            font-size: 1.3rem;
+        }
+        
+        /* SECCIÓN OBJETIVOS ESPECÍFICOS */
+        .objectives-section {
+            padding: 5rem 2rem;
+            background: var(--gray-dark);
+        }
+        
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .objective-card {
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid rgba(33, 150, 243, 0.3);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .objective-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--mforce-primary);
+            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.2);
+        }
+        
+        .objective-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(33, 150, 243, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--mforce-primary);
+            font-size: 2rem;
+        }
+        
+        .objective-card h3 {
+            color: var(--mforce-primary);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* BENEFICIOS */
+        .benefits-section {
+            padding: 5rem 2rem;
+            background: var(--dark-bg);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .benefit-card {
+            background: var(--gray-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid rgba(154, 205, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--greenyellow);
+            box-shadow: 0 10px 20px rgba(154, 205, 50, 0.2);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(154, 205, 50, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--greenyellow);
+            font-size: 1.8rem;
+        }
+        
+        .benefit-card h3 {
+            color: var(--greenyellow);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* PROGRAMA DETALLADO */
+        .program-details {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .program-phase {
+            background: var(--dark-bg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--mforce-primary);
+        }
+        
+        .program-phase h3 {
+            color: var(--greenyellow);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+        }
+        
+        .phase-number {
+            display: inline-block;
+            background: var(--mforce-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .program-phase ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .program-phase li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 25px;
+            color: var(--gray-light);
+        }
+        
+        .program-phase li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--mforce-primary);
+            font-weight: bold;
+        }
+        
+        /* SECCIÓN DE PLANES Y PRECIOS */
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: var(--gray-dark);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .pricing-card {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--mforce-primary);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--mforce-primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            background: rgba(33, 150, 243, 0.1);
+        }
+        
+        .pricing-card.popular .pricing-header {
+            background: rgba(33, 150, 243, 0.2);
+        }
+        
+        .pricing-header h3 {
+            color: var(--mforce-primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--greenyellow);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .period {
+            color: var(--gray-light);
+            font-size: 1rem;
+        }
+        
+        .pricing-features {
+            padding: 2rem;
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-features i {
+            color: var(--mforce-primary);
+        }
+        
+        .pricing-footer {
+            padding: 0 2rem 2rem;
+            text-align: center;
+        }
+        
+        .bestia-card {
+            border-color: var(--greenyellow);
+        }
+        
+        .bestia-card .pricing-header {
+            background: rgba(154, 205, 50, 0.1);
+        }
+        
+        .bestia-card .pricing-header h3 {
+            color: var(--greenyellow);
+        }
+        
+        .btn-bestia {
+            background: var(--greenyellow);
+            border-color: var(--greenyellow);
+            color: var(--dark-bg);
+        }
+        
+        .btn-bestia:hover {
+            background: transparent;
+            color: var(--greenyellow);
+        }
+        
+        @media (max-width: 768px) {
+            .mforce-hero {
+                padding: 100px 1rem 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-text {
+                font-size: 1.1rem;
+            }
+            
+            .highlight-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <img src="imgs/logo-white.PNG" alt="MolinaSport" class="nav-logo-img"> 
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#nosotros">Sobre MolinaSport</a></li>
+            <li><a href="index.html#ofrecemos">Productos</a></li>
+            <li><a href="index.html#planes">Planes</a></li>
+            <li><a href="index.html#redes">Redes</a></li>
+            <li><a href="gforce.html">G-Force</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SIMPLIFICADO SIN CARRUSEL -->
+    <section class="mforce-hero">
+        <div class="container">
+            <h1 class="hero-title">H-SYSTEM</h1>
+            <h2 class="hero-subtitle">Potencia tu desarrollo muscular</h2>
+            <p class="hero-text">Programa avanzado de hipertrofia masculina enfocado en desarrollo de brazos, pecho, espalda y hombros. Fuerza máxima, recuperación optimizada y crecimiento muscular garantizado.</p>
+            
+            <div class="hero-highlight">
+                <ul class="highlight-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Brazos:</strong> Bíceps y tríceps potentes</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Pecho:</strong> Desarrollo completo y definido</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Espalda:</strong> Anchura y grosor (trapecios)</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Hombros:</strong> Redondeados y fuertes</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Recuperación:</strong> Optimizada para máximo crecimiento</li>
+                </ul>
+            </div>
+            
+            <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa" style="background: var(--mforce-primary); border-color: var(--mforce-primary); padding: 15px 40px; font-size: 1.1rem;">
+                <i class="fab fa-whatsapp"></i> ¡Quiero comenzar ahora!
+            </a>
+        </div>
+    </section>
+
+    <!-- OBJETIVOS ESPECÍFICOS -->
+    <section class="objectives-section">
+        <h2 class="section-title">Objetivos <span style="color: var(--mforce-primary)">Principales</span></h2>
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Hipertrofia de Brazos</h3>
+                <p>Desarrollo completo de bíceps, tríceps y antebrazos. Ejercicios específicos para cada cabeza muscular.</p>
+            </div>
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Pecho Definitivo</h3>
+                <p>Trabajo de pectoral superior, medio e inferior. Desarrollo completo y definición de separaciones.</p>
+            </div>
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <h3>Espalda en V</h3>
+                <p>Anchura (dorsales) y grosor (romboides, trapecios). Espalda completa que marca la diferencia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-section">
+        <h2 class="section-title">Beneficios <span style="color: var(--mforce-primary)">Exclusivos</span></h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Progresión Garantizada</h3>
+                <p>Aumento constante en pesos y repeticiones. Seguimiento semanal de progreso.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Recuperación Avanzada</h3>
+                <p>Protocolos específicos para optimizar crecimiento y prevenir sobreentrenamiento.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3>Nutrición para Masa</h3>
+                <p>Plan alimenticio hipercalórico limpio para ganancia muscular sin exceso de grasa.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Técnica Perfeccionada</h3>
+                <p>Corrección minuciosa de cada ejercicio para maximizar activación muscular.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMA DETALLADO -->
+    <section class="products-section">
+        <h2 class="section-title">Tu Programa <span style="color: var(--mforce-primary)">Incluye</span></h2>
+        <div class="program-details">
+            <div class="program-phase">
+                <h3><span class="phase-number">01</span> Evaluación de Fuerza</h3>
+                <ul>
+                    <li>Test de 1RM en ejercicios clave</li>
+                    <li>Análisis de proporciones musculares</li>
+                    <li>Evaluación de puntos débiles</li>
+                    <li>Mediciones antropométricas</li>
+                </ul>
+            </div>
+            <div class="program-phase">
+                <h3><span class="phase-number">02</span> Entrenamiento Avanzado</h3>
+                <ul>
+                    <li>Split training específico por grupos</li>
+                    <li>Técnicas de hipertrofia avanzada</li>
+                    <li>Protocolos de sobrecarga progresiva</li>
+                    <li>Frecuencia y volumen óptimos</li>
+                </ul>
+            </div>
+            <div class="program-phase">
+                <h3><span class="phase-number">03</span> Recuperación Especializada</h3>
+                <ul>
+                    <li>Protocolos de sueño y descanso</li>
+                    <li>Suplementación para recuperación</li>
+                    <li>Manejo del volumen y frecuencia</li>
+                    <li>Prevención de sobreentrenamiento</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES Y PRECIOS -->
+    <section class="pricing-section">
+        <h2 class="section-title">Elige tu <span style="color: var(--mforce-primary)">Plan</span></h2>
+        <p class="plans-intro">Selecciona la opción que mejor se adapte a tus objetivos y compromiso</p>
+        
+        <div class="pricing-grid">
+            <!-- PLAN BESTIA -->
+            <div class="pricing-card bestia-card">
+                <div class="pricing-header">
+                    <h3>Plan Bestia</h3>
+                    <div class="price">$40.000</div>
+                    <p class="period">Asesoría online única</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Asesoría personalizada 1:1 (90 min)</li>
+                    <li><i class="fas fa-check"></i> Análisis de rutina actual</li>
+                    <li><i class="fas fa-check"></i> Corrección de técnica avanzada</li>
+                    <li><i class="fas fa-check"></i> Plan nutricional para masa</li>
+                    <li><i class="fas fa-check"></i> Estrategia de progresión</li>
+                </ul>
+                <div class="pricing-footer">
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-bestia">
+                        <i class="fab fa-whatsapp"></i> Solicitar asesoría
+                    </a>
+                </div>
+            </div>
+            
+            
+            
+            <!-- PLAN TRIMESTRAL (MÁS POPULAR) -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">¡MÁS POPULAR!</div>
+                <div class="pricing-header">
+                    <h3>Plan Trimestral</h3>
+                    <div class="price">$155.000</div>
+                    <p class="period">3 meses (Ahorras $55.000)</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <strong>TODO del plan mensual</strong></li>
+                    <li><i class="fas fa-check"></i> <strong>Descuento del 26%</strong></li>
+                    <li><i class="fas fa-check"></i> Evaluaciones mensuales de fuerza</li>
+                    <li><i class="fas fa-check"></i> Ajustes de rutina cada 4 semanas</li>
+                    <li><i class="fas fa-check"></i> Protocolos de recuperación premium</li>
+                    <li><i class="fas fa-check"></i> Prioridad en respuestas</li>
+                </ul>
+                <div class="pricing-footer">
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa" style="background: var(--mforce-primary); border-color: var(--mforce-primary);">
+                        <i class="fab fa-whatsapp"></i> ¡Quiero ahorrar $55.000!
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </section>
+
+    <!-- FOOTER -->
+    <section id="redes" class="footer-section">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/molinasport.sf?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5492901650127" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="quote" style="color: white;">"La fuerza no se mide por lo que puedes hacer, sino por lo que superas cuando piensas que no puedes más."</p>
+        <a href="index.html" class="btn" style="margin-top: 2rem; display: inline-block;">← Volver a Inicio</a>
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #fff9f9;">© 2025 MolinaSport - Programa H-SYSTEM</p>
+    </section>
+
+    <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.classList.contains('carousel-btn')) return;
+            
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Añadir botón hamburguesa para móvil
+        if (window.innerWidth <= 768) {
+            const nav = document.querySelector('nav');
+            if (nav && !document.querySelector('.menu-toggle')) {
+                const menuToggle = document.createElement('button');
+                menuToggle.className = 'menu-toggle';
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                menuToggle.onclick = function() {
+                    const navLinks = document.querySelector('.nav-links');
+                    navLinks.classList.toggle('active');
+                    
+                    const menuIcon = document.querySelector('.menu-toggle i');
+                    if (navLinks.classList.contains('active')) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-times');
+                    } else {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                };
+                nav.appendChild(menuToggle);
+            }
+        }
+    });
+    </script>
+</body>
+</html>

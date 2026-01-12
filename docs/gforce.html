@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="G-Force: Programa especializado para mujeres. Trabajo de glúteos, piernas, abdomen. Pérdida de grasa y aumento muscular estético. Entrenamiento y nutrición personalizada.">
+    <meta name="keywords" content="glúteos, piernas, abdomen, pérdida grasa mujer, aumento muscular femenino, entrenamiento mujeres, estética femenina">
+    <meta name="author" content="Luciano Molinas - MolinaSport">
+    <title>G-Force - MolinaSport</title>
+    <link rel="canonical" href="https://tudominio.com/gforce.html">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA G-FORCE */
+        :root {
+            --gforce-primary: #FF6B8B;
+            --gforce-secondary: #9C27B0;
+            --gforce-dark: #6A1B9A;
+            --gforce-light: #FFCCDC;
+        }
+        
+        /* HERO SIMPLIFICADO SIN CARRUSEL */
+        .gforce-hero {
+            background: linear-gradient(135deg, var(--gforce-primary) 0%, var(--gforce-secondary) 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .gforce-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        
+        .gforce-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+        
+        .hero-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 900px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .highlight-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .highlight-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-list i {
+            color: #FFCC00;
+            font-size: 1.3rem;
+        }
+        
+        /* SECCIÓN OBJETIVOS ESPECÍFICOS */
+        .objectives-section {
+            padding: 5rem 2rem;
+            background: var(--gray-dark);
+        }
+        
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .objective-card {
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 139, 0.3);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .objective-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gforce-primary);
+            box-shadow: 0 10px 25px rgba(255, 107, 139, 0.2);
+        }
+        
+        .objective-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 139, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--gforce-primary);
+            font-size: 2rem;
+        }
+        
+        .objective-card h3 {
+            color: var(--gforce-primary);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* BENEFICIOS */
+        .benefits-section {
+            padding: 5rem 2rem;
+            background: var(--dark-bg);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .benefit-card {
+            background: var(--gray-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid rgba(154, 205, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--greenyellow);
+            box-shadow: 0 10px 20px rgba(154, 205, 50, 0.2);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(154, 205, 50, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--greenyellow);
+            font-size: 1.8rem;
+        }
+        
+        .benefit-card h3 {
+            color: var(--greenyellow);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* PROGRAMA DETALLADO */
+        .program-details {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .program-phase {
+            background: var(--dark-bg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--gforce-primary);
+        }
+        
+        .program-phase h3 {
+            color: var(--greenyellow);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+        }
+        
+        .phase-number {
+            display: inline-block;
+            background: var(--gforce-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .program-phase ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .program-phase li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 25px;
+            color: var(--gray-light);
+        }
+        
+        .program-phase li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gforce-primary);
+            font-weight: bold;
+        }
+        
+        /* SECCIÓN DE PLANES Y PRECIOS */
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: var(--gray-dark);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .pricing-card {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--gforce-primary);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gforce-primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            background: rgba(255, 107, 139, 0.1);
+        }
+        
+        .pricing-card.popular .pricing-header {
+            background: rgba(255, 107, 139, 0.2);
+        }
+        
+        .pricing-header h3 {
+            color: var(--gforce-primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--greenyellow);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .period {
+            color: var(--gray-light);
+            font-size: 1rem;
+        }
+        
+        .pricing-features {
+            padding: 2rem;
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-features i {
+            color: var(--gforce-primary);
+        }
+        
+        .pricing-footer {
+            padding: 0 2rem 2rem;
+            text-align: center;
+        }
+        
+        .bestia-card {
+            border-color: var(--greenyellow);
+        }
+        
+        .bestia-card .pricing-header {
+            background: rgba(154, 205, 50, 0.1);
+        }
+        
+        .bestia-card .pricing-header h3 {
+            color: var(--greenyellow);
+        }
+        
+        .btn-bestia {
+            background: var(--greenyellow);
+            border-color: var(--greenyellow);
+            color: var(--dark-bg);
+        }
+        
+        .btn-bestia:hover {
+            background: transparent;
+            color: var(--greenyellow);
+        }
+        
+        @media (max-width: 768px) {
+            .gforce-hero {
+                padding: 100px 1rem 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-text {
+                font-size: 1.1rem;
+            }
+            
+            .highlight-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+                /* SECCIÓN TESTIMONIO INSTAGRAM */
+        .instagram-testimonial {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 107, 139, 0.1) 0%, rgba(154, 205, 50, 0.1) 100%);
+        }
+        
+        .testimonial-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray-light);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .testimonial-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .testimonial-text {
+            background: var(--dark-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            position: relative;
+            border: 2px solid rgba(255, 107, 139, 0.3);
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--gforce-primary);
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+        
+        .quote-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .client-info {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+        
+        .client-info strong {
+            display: block;
+            color: var(--gforce-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .client-info span {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .results {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .result-item {
+            background: rgba(255, 107, 139, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .result-item i {
+            color: var(--gforce-primary);
+        }
+        
+        .testimonial-video {
+            background: var(--dark-bg);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .instagram-embed {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3);
+        }
+        
+        .instagram-link {
+            text-align: center;
+        }
+        
+        .instagram-link img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .testimonial-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--dark-bg);
+            border-radius: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .testimonial-cta p {
+            font-size: 1.3rem;
+            color: var(--greenyellow);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 992px) {
+            .testimonial-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .testimonial-text {
+                order: 2;
+            }
+            
+            .testimonial-video {
+                order: 1;
+            }
+            
+            .results {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .instagram-testimonial {
+                padding: 3rem 1rem;
+            }
+            
+            .testimonial-text {
+                padding: 1.5rem;
+            }
+            
+            .quote-text {
+                font-size: 1.1rem;
+            }
+            
+            .testimonial-cta p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <img src="imgs/logo-white.PNG" alt="MolinaSport" class="nav-logo-img"> 
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#nosotros">Sobre MolinaSport</a></li>
+            <li><a href="index.html#ofrecemos">Productos</a></li>
+            <li><a href="index.html#planes">Planes</a></li>
+            <li><a href="index.html#redes">Redes</a></li>
+            <li><a href="mforce.html">H-SYSTEM</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SIMPLIFICADO SIN CARRUSEL -->
+    <section class="gforce-hero">
+        <div class="container">
+            <h1 class="hero-title">G-FORCE</h1>
+            <h2 class="hero-subtitle">Transforma tu cuerpo femenino</h2>
+            <p class="hero-text">Programa especializado para mujeres que busca maximizar el desarrollo de glúteos, piernas y abdomen. Pérdida de grasa localizada y aumento muscular estético con métodos comprobados.</p>
+            
+            <div class="hero-highlight">
+                <ul class="highlight-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Glúteos:</strong> Desarrollo y levantamiento</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Piernas:</strong> Fuerza y definición</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Abdomen:</strong> Marcación y tonificación</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Pérdida de grasa:</strong> Localizada y efectiva</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Aumento muscular:</strong> Estético y proporcional</li>
+                </ul>
+            </div>
+            
+            <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa" style="background: var(--gforce-primary); border-color: var(--gforce-primary); padding: 15px 40px; font-size: 1.1rem;">
+                <i class="fab fa-whatsapp"></i> ¡Quiero comenzar ahora!
+            </a>
+        </div>
+    </section>
+
+    <!-- OBJETIVOS ESPECÍFICOS -->
+    <section class="objectives-section">
+        <h2 class="section-title">Objetivos <span style="color: var(--gforce-primary)">Principales</span></h2>
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Glúteos de Acero</h3>
+                <p>Desarrollo completo: volumen, forma y levantamiento. Ejercicios específicos para glúteo mayor, medio y menor.</p>
+            </div>
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+                <h3>Piernas Definidas</h3>
+                <p>Fuerza y estética en cuadríceps, isquiotibiales y pantorrillas. Proporción perfecta entre músculo y definición.</p>
+            </div>
+            <div class="objective-card">
+                <div class="objective-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Abdomen Marcado</h3>
+                <p>Trabajo de recto abdominal, oblicuos y transverso. Reducción de cintura y marcación del six-pack.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-section">
+        <h2 class="section-title">Beneficios <span style="color: var(--gforce-primary)">Exclusivos</span></h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h3>Quema de Grasa</h3>
+                <p>Metabolismo acelerado con enfoque en zonas problemáticas: caderas, muslos y abdomen.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Mediciones Semanales</h3>
+                <p>Seguimiento de progreso con mediciones precisas de circunferencias y composición corporal.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3>Nutrición Femenina</h3>
+                <p>Plan alimenticio adaptado a tus objetivos y ciclo menstrual para optimizar resultados.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Coaching Personal</h3>
+                <p>Acompañamiento diario con corrección de técnica y ajustes personalizados.</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- TESTIMONIO CON VIDEO DE INSTAGRAM -->
+    <section class="instagram-testimonial">
+        <div class="container">
+            <h2 class="section-title">Resultados que <span style="color: var(--gforce-primary)">hablan por sí solos</span></h2>
+            <p class="testimonial-intro">Una de nuestras clientas siguió nuestro plan personalizado G-Force. Los resultados son la mejor prueba de la efectividad del programa.</p>
+            
+            <div class="testimonial-content">
+                <div class="testimonial-text">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">"Empecé con G-Force buscando mejorar mi figura, especialmente glúteos y piernas. En solo 3 meses logré resultados que nunca imaginé. El seguimiento personalizado y las rutinas específicas hicieron toda la diferencia."</p>
+                    <div class="client-info">
+                        <strong>Andrea...</strong>
+                        <span>12 semanas en programa G-Force</span>
+                        <div class="results">
+                            <div class="result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Gluteos construidos</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cintura Mejorada</span>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Perdida de Grasa y Aumento de Musculo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-video">
+                    <!-- VIDEO DE INSTAGRAM - ELIGE UNA DE ESTAS OPCIONES -->
+                    
+                    <!-- OPCIÓN 1: Embed de Instagram oficial (recomendado) -->
+                    <div class="instagram-embed">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTS96vDkR3o/" 
+                                   data-instgrm-version="14" 
+                                   style="background:#FFF; border:0; border-radius:12px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        </blockquote>
+                        <script async src="//www.instagram.com/embed.js"></script>
+                    </div>
+                    
+                    <!-- OPCIÓN 2: Video HTML5 con enlace a Instagram (si tienes el video descargado) -->
+                    <!--
+                    <div class="video-container">
+                        <video controls poster="imgs/testimonio-gforce.jpg" style="width:100%; border-radius:15px;">
+                            <source src="imgs/testimonio-gforce.mp4" type="video/mp4">
+                            Tu navegador no soporta videos.
+                        </video>
+                        <a href="https://www.instagram.com/reel/Cxxxxxxxxxx/" target="_blank" class="btn-instagram">
+                            <i class="fab fa-instagram"></i> Ver en Instagram
+                        </a>
+                    </div>
+                    -->
+                    
+                    <!-- OPCIÓN 3: Captura con enlace (si no puedes embed) -->
+                    <!--
+                    <div class="instagram-link">
+                        <img src="imgs/testimonio-instagram.jpg" alt="Testimonio en Instagram" style="width:100%; border-radius:15px;">
+                        <a href="https://www.instagram.com/reel/Cxxxxxxxxxx/" target="_blank" class="btn-instagram">
+                            <i class="fab fa-instagram"></i> Ver testimonio completo en Instagram
+                        </a>
+                    </div>
+                    -->
+                </div>
+            </div>
+            
+            <div class="testimonial-cta">
+                <p>¿Lista para obtener resultados similares?</p>
+                <a href="https://w.app/molinasport" target="_blank" class="btn btn-wa" style="background: var(--gforce-primary); border-color: var(--gforce-primary);">
+                    <i class="fab fa-whatsapp"></i> ¡Quiero mi transformación!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMA DETALLADO -->
+    <section class="products-section">
+        <h2 class="section-title">Tu Programa <span style="color: var(--gforce-primary)">Incluye</span></h2>
+        <div class="program-details">
+            <div class="program-phase">
+                <h3><span class="phase-number">01</span> Evaluación Inicial Detallada</h3>
+                <ul>
+                    <li>Análisis de composición corporal (grasa vs músculo)</li>
+                    <li>Mediciones de glúteos, piernas y cintura</li>
+                    <li>Test de fuerza y movilidad específico</li>
+                    <li>Definición de objetivos realistas y alcanzables</li>
+                </ul>
+            </div>
+            <div class="program-phase">
+                <h3><span class="phase-number">02</span> Entrenamiento Especializado</h3>
+                <ul>
+                    <li>Rutinas específicas para desarrollo de glúteos</li>
+                    <li>Ejercicios compuestos para piernas y abdomen</li>
+                    <li>Técnica perfecta en cada movimiento</li>
+                    <li>Progresión semanal garantizada</li>
+                </ul>
+            </div>
+            <div class="program-phase">
+                <h3><span class="phase-number">03</span> Soporte Total</h3>
+                <ul>
+                    <li>Consultas ilimitadas vía WhatsApp</li>
+                    <li>Revisión de vídeos para corrección de técnica</li>
+                    <li>Comunidad privada solo mujeres</li>
+                    <li>Material educativo exclusivo</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES Y PRECIOS -->
+    <section class="pricing-section">
+        <h2 class="section-title">Elige tu <span style="color: var(--gforce-primary)">Plan</span></h2>
+        <p class="plans-intro">Selecciona la opción que mejor se adapte a tus objetivos y compromiso</p>
+        
+        <div class="pricing-grid">
+            
+            <!-- PLAN MENSUAL -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Plan Mensual</h3>
+                    <div class="price">$68.000</div>
+                    <p class="period">por mes</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Programa G-Force completo</li>
+                    <li><i class="fas fa-check"></i> Rutinas personalizadas semanales</li>
+                    <li><i class="fas fa-check"></i> Plan nutrición cíclica</li>
+                    <li><i class="fas fa-check"></i> Soporte diario por WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Revisión de técnica por video</li>
+                    <li><i class="fas fa-check"></i> Acceso a comunidad privada</li>
+                </ul>
+                <div class="pricing-footer">
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa" style="background: var(--gforce-primary); border-color: var(--gforce-primary);">
+                        <i class="fab fa-whatsapp"></i> Comenzar ahora
+                    </a>
+                </div>
+            </div>
+            
+            <!-- PLAN TRIMESTRAL (MÁS POPULAR) -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">¡MÁS POPULAR!</div>
+                <div class="pricing-header">
+                    <h3>Plan Trimestral</h3>
+                    <div class="price">$150.000</div>
+                    <p class="period">3 meses (Ahorras $54.000)</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <strong>TODO del plan mensual</strong></li>
+                    <li><i class="fas fa-check"></i> <strong>Descuento del 26%</strong></li>
+                    <li><i class="fas fa-check"></i> Evaluaciones mensuales de progreso</li>
+                    <li><i class="fas fa-check"></i> Ajustes de rutina cada 4 semanas</li>
+                    <li><i class="fas fa-check"></i> Material educativo premium</li>
+                    <li><i class="fas fa-check"></i> Prioridad en respuestas</li>
+                </ul>
+                <div class="pricing-footer">
+                    <a href="https://wa.me/5492901650127" target="_blank" class="btn btn-wa" style="background: var(--gforce-primary); border-color: var(--gforce-primary);">
+                        <i class="fab fa-whatsapp"></i> ¡Quiero ahorrar $54.000!
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- FOOTER -->
+    <section id="redes" class="footer-section">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/molinasport.sf?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5492901650127" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="quote" style="color: white;">"La disciplina duele hoy, pero el arrepentimiento duele mañana. Elige tu dolor."</p>
+        <a href="index.html" class="btn" style="margin-top: 2rem; display: inline-block;">← Volver a Inicio</a>
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #fff9f9;">© 2025 MolinaSport - Programa G-Force</p>
+    </section>
+
+    <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.classList.contains('carousel-btn')) return;
+            
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Añadir botón hamburguesa para móvil
+        if (window.innerWidth <= 768) {
+            const nav = document.querySelector('nav');
+            if (nav && !document.querySelector('.menu-toggle')) {
+                const menuToggle = document.createElement('button');
+                menuToggle.className = 'menu-toggle';
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                menuToggle.onclick = function() {
+                    const navLinks = document.querySelector('.nav-links');
+                    navLinks.classList.toggle('active');
+                    
+                    const menuIcon = document.querySelector('.menu-toggle i');
+                    if (navLinks.classList.contains('active')) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-times');
+                    } else {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                };
+                nav.appendChild(menuToggle);
+            }
+        }
+    });
+    </script>
+</body>
+</html>
